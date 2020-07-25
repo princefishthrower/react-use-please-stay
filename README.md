@@ -6,6 +6,8 @@ I've put together a quick tutorial, it assumes an understanding of React, hooks 
 
 If something is not clear, message me or raise an issue, I will explain in more detail.
 
+I've used this boilerplate to create my NPM package [https://www.npmjs.com/package/@nekogd/react-utility-hooks].
+
 ## First things first
 
 Firstly, clone this repository. 
