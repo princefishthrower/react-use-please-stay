@@ -1,8 +1,8 @@
 # React Hooks to npm boilerplate
 
-This repository is a boilerplate for creating custom hooks that we can publish to NPM registry as packages.
+This repository is a boilerplate for creating custom React hooks and components that we can publish to NPM registry as packages.
 
-I've put together a quick tutorial, it assumes an understanding of react, hooks and tests.
+I've put together a quick tutorial, it assumes an understanding of React, hooks and unit tests.
 
 If something is not clear, message me or raise an issue, I will explain in more detail.
 
