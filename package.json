@@ -24,6 +24,9 @@
       "ts",
       "tsx",
       "js"
+    ],
+    "modulePathIgnorePatterns": [
+      "<rootDir>/dist/"
     ]
   },
   "peerDependencies": {
