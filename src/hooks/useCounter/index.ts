@@ -1,4 +1,5 @@
 import { useCallback, useState } from 'react';
+import PropTypes from 'prop-types';
 
 type IUseCounter = {
   count: number;
@@ -44,9 +45,29 @@ type IUseCounter = {
  */
 
 export const useCounter = (initialValue: number = 0): IUseCounter => {
+  if (typeof initialValue === 'string') {
+    console.log('you have passed a string to useCounter. It still may work however');
+    initialValue = parseInt(initialValue);
+  }
+
+  if (isNaN(initialValue)) {
+    console.log(
+      'you really want to break the useCounter. Please pass a number as parameter. Defaulting to zero.',
+    );
+    initialValue = 0;
+  }
+
   const [count, setCount] = useState<number>(initialValue);
   const increment = useCallback(() => setCount((value) => value + 1), []);
   const decrement = useCallback(() => setCount((value) => value - 1), []);
   const reset = useCallback(() => setCount(initialValue), [initialValue]);
   return { count, increment, decrement, reset };
+};
+
+useCounter.PropTypes = {
+  initialValue: PropTypes.number.isRequired,
+};
+
+useCounter.defaultProps = {
+  initialValue: 0,
 };
