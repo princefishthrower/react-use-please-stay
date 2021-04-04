@@ -49,3 +49,7 @@ usePleaseStay(["Don't go!", "We have React hooks!", "We're sad!", "Come back!"],
 ```
 
 That's about it for all possible configurations. Just remember that since this hook interacts with `document.title` it should only be called only **once** in your app, for example in a layout or `App` component - otherwise the title animation will not be smooth and things could get strange.
+
+## JQuery Implementation
+
+For those interested, the only JQuery implementation I could find was in this [GitHub gist](https://gist.github.com/sonnm/fcaaf616e62cc46e8756599306f4e1ad#file-jquery-pleasestay-js).
