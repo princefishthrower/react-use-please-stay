@@ -1,20 +1,20 @@
 import { renderHook, act } from '@testing-library/react-hooks';
-import { useCounter } from '../index';
+import { usePleaseStay } from '../index';
 
-describe('useCounter tests', () => {
+describe('usePleaseStay tests', () => {
   it('should be defined', () => {
-    expect(useCounter).toBeDefined();
+    expect(usePleaseStay).toBeDefined();
   });
 
   it('renders the hook correctly and checks types', () => {
-    const { result } = renderHook(() => useCounter());
+    const { result } = renderHook(() => usePleaseStay());
     expect(result.current.count).toBe(0);
     expect(typeof result.current.count).toBe('number');
     expect(typeof result.current.increment).toBe('function');
   });
 
   it('should increment counter', () => {
-    const { result } = renderHook(() => useCounter());
+    const { result } = renderHook(() => usePleaseStay());
     act(() => {
       result.current.increment();
     });
@@ -22,7 +22,7 @@ describe('useCounter tests', () => {
   });
 
   it('should increment counter from custom initial value', () => {
-    const { result } = renderHook(() => useCounter(10));
+    const { result } = renderHook(() => usePleaseStay(10));
     act(() => {
       result.current.increment();
     });
@@ -30,7 +30,7 @@ describe('useCounter tests', () => {
   });
 
   it('should decrement counter from custom initial value', () => {
-    const { result } = renderHook(() => useCounter(20));
+    const { result } = renderHook(() => usePleaseStay(20));
     act(() => {
       result.current.decrement();
     });
@@ -39,7 +39,7 @@ describe('useCounter tests', () => {
 
   it('should reset counter to updated initial value', () => {
     let initialValue = 0;
-    const { result, rerender } = renderHook(() => useCounter(initialValue));
+    const { result, rerender } = renderHook(() => usePleaseStay(initialValue));
     initialValue = 10;
     rerender();
     act(() => {

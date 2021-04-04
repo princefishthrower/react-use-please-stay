@@ -1,10 +1,10 @@
 {
-  "name": "@nekogd/react-hook-npm-publish-boilerplate",
-  "version": "0.0.0",
-  "description": "Modular utility hooks that we often use grouped in one package. Written in TypeScript, documented, tested and maintained.Disclaimer: at least React 16 is needed (the one with hooks ;) )",
+  "name": "react-use-please-stay",
+  "version": "1.0.1",
+  "description": "A react hook based on the classic JQuery document title animation when you leave a tab in a browser.",
   "author": "nekogd",
   "license": "Apache-2.0",
-  "repository": "nekogd/react-hook-npm-publish-boilerplate",
+  "repository": "princefishthrower/react-use-please-stay",
   "main": "dist/index.js",
   "engines": {
     "node": ">=8",
@@ -30,11 +30,10 @@
     ]
   },
   "peerDependencies": {
-    "react": ">= 16.8.0",
-    "react-dom": ">= 16.8.0"
+    "react": ">= 17.0.2",
+    "react-dom": ">= 17.0.2"
   },
   "devDependencies": {
-    "@testing-library/react-hooks": "^3.4.1",
     "@types/jest": "^26.0.7",
     "@types/react": "^16.3.13",
     "@types/react-dom": "^16.0.5",
@@ -42,9 +41,8 @@
     "babel-runtime": "^6.26.0",
     "eslint-plugin-react-hooks": "^4.0.8",
     "jest": "^26.1.0",
-    "react": "^16.12.0",
-    "react-dom": "^16.12.0",
-    "react-test-renderer": "^16.13.1",
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2",
     "rollup": "^1.29.0",
     "rollup-plugin-sass": "^1.2.2",
     "rollup-plugin-typescript2": "^0.25.3",
