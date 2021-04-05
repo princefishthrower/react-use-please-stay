@@ -2,7 +2,9 @@
 
 A classic JQuery functionality which brought animated title when you left a browser tab open but weren't on the page - ported to a React hook!
 
-Install and save this as a dependency:
+# Get Started
+
+Install and save this package as a dependency:
 
 ```bash
 npm install --save react-use-please-stay
@@ -13,6 +15,14 @@ Import with:
 ```tsx
 import { usePleaseStay } from 'react-use-please-stay'
 ```
+
+Use it within your functional components (it has return of `void`, so you can just call it):
+
+```tsx
+usePleaseStay(<<<hook parameters here, see 'examples' section below>>>)
+```
+
+# Examples
 
 Minimal example, passing the single required argument `messages`:
 
