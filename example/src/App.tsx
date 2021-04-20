@@ -1,11 +1,11 @@
 import React from 'react';
-import { usePleaseStay } from 'react-use-please-stay'
+import { AnimationType, usePleaseStay } from 'react-use-please-stay'
 
 function App() {
-  usePleaseStay(["Don't go!", "We have React hooks!"])
+  usePleaseStay(["123456789"], 100, AnimationType.CASCADE)
   return (
     <>
-      <h1>usePleaseStay()</h1>
+      <h1>usePleaseStay</h1>
       <p>An example of the usePleaseStay hook. Leaving this browser tab open, navigate or open another tab and watch the magic happen!</p>
     </>
   );
