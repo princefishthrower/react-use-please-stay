@@ -4,5 +4,5 @@ export type UsePleaseStayOptions = {
   messages: Array<string>;
   animationType?: AnimationType;
   delay?: number;
-  faviconHref?: string;
+  faviconHrefs?: Array<string>;
 }
