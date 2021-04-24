@@ -1,7 +1,7 @@
 {
   "name": "react-use-please-stay",
-  "version": "1.2.7",
-  "description": "A react hook based on the classic JQuery document title animation when you leave a tab in a browser.",
+  "version": "1.6.7",
+  "description": "A react hook that animates the document title when you leave a tab in a browser.",
   "author": "Chris Frewin",
   "license": "MIT",
   "repository": "princefishthrower/react-use-please-stay",

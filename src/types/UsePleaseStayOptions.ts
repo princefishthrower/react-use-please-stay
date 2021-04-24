@@ -1,8 +1,10 @@
 import { AnimationType } from '../enums/AnimationType';
 
 export type UsePleaseStayOptions = {
-  messages: Array<string>;
+  defaultTitle: string;
+  titles: Array<string>;
   animationType?: AnimationType;
-  delay?: number;
-  faviconHrefs?: Array<string>;
+  interval?: number;
+  faviconLinks?: Array<string>;
+  alwaysRunAnimations?: boolean;
 }
