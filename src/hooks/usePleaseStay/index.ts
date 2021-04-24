@@ -8,7 +8,7 @@ export const usePleaseStay = ({
   titles,
   animationType = AnimationType.LOOP,
   interval = 1000,
-  faviconLinks = [],
+  faviconURIs = [],
   alwaysRunAnimations = false,
 }: UsePleaseStayOptions): void => {
   if (animationType === AnimationType.CASCADE && titles.length > 1) {
@@ -25,7 +25,7 @@ export const usePleaseStay = ({
   const [titleIndex, setTitleIndex] = useState<number>(0);
   const [faviconIndex, setFaviconIndex] = useState<number>(0);
   const [isAppendMode, setIsAppendMode] = useState<boolean>(true);
-  const [faviconLinksState, setFaviconLinksState] = useState<Array<string>>([]);
+  const [faviconURIsState, setFaviconURIsState] = useState<Array<string>>([]);
 
   // Ref vars
   const originalDocumentTitle = useRef<string>();
@@ -75,9 +75,9 @@ export const usePleaseStay = ({
   // The logic to modify the favicon.
   const modifyFavicon = () => {
     if (faviconRef && faviconRef.current) {
-      faviconRef.current.href = faviconLinksState[faviconIndex];
+      faviconRef.current.href = faviconURIsState[faviconIndex];
       setFaviconIndex(
-        faviconIndex === faviconLinksState.length - 1 ? 0 : faviconIndex + 1,
+        faviconIndex === faviconURIsState.length - 1 ? 0 : faviconIndex + 1,
       );
     }
   };
@@ -111,10 +111,10 @@ export const usePleaseStay = ({
     originalFaviconHref.current = favicon.href;
     faviconRef.current = favicon;
 
-    // TODO: small preload logic for external favicon links?
+    // TODO: small preload logic for external favicon links? (if not a local URI)
     // Build faviconLinksState
     // Append current favicon href, since this is needed for an expected favicon toggle or animation pattern
-    setFaviconLinksState([...faviconLinks, favicon.href]);
+    setFaviconURIsState([...faviconURIs, favicon.href]);
 
     // also add visibilitychange event listener
     document.addEventListener('visibilitychange', handleVisibilityChange);
@@ -137,7 +137,7 @@ export const usePleaseStay = ({
     () => {
       modifyDocumentTitle();
       // this is 1 because we append the existing favicon on mount - see above
-      faviconLinksState.length > 1 && modifyFavicon();
+      faviconURIsState.length > 1 && modifyFavicon();
     },
     shouldAnimate ? interval : null,
   );

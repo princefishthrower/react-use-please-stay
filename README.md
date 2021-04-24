@@ -1,10 +1,15 @@
-# react-use-please-stay
-
-A classic JQuery functionality which brought animated title when you left a browser tab open but weren't on the page - ported to a React hook!
+# react-use-please-stay  
+[![GitHub license](https://img.shields.io/badge/license-MIT-blue.svg)](https://github.com/princefishthrower/react-use-please-stay/blob/master/LICENSE) [![npm version](https://img.shields.io/npm/v/react-use-please-stay.svg?style=flat)](https://www.npmjs.com/package/react-use-please-stay) ![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg)
 
 ![react-use-please-stay at work](example.gif)
 
-# Get Started
+A react hook that animates the document title and/or favicon when focus from the page is lost. (Or configure it to always animate! 😉)
+
+# Interactive Demo
+
+Link coming soon.
+
+# Getting Started
 
 Install and save this package as a dependency:
 
@@ -26,7 +31,7 @@ usePleaseStay({ titles: ["Don't go!", 'We have React hooks!'] });
 
 # Options
 
-Options for the hook are passed via an object of [type `UsePleaseStayOptions`](./src/types/UsePleaseStayOptions.ts).
+Options for the hook are passed via an object of [type `UsePleaseStayOptions` (click me!)](./src/types/UsePleaseStayOptions.ts).
 
 # Examples
 
@@ -100,7 +105,7 @@ That's about it for all possible configurations. Just remember that since this h
 
 # Known Issues
 
-In some frameworks like GatsbyJS, the `document.title` is injected some time after the did mount and thus the default title returned to is sometimes wrong. This so far causes incorrect behavior only in development environments. There are no issues in the production builds.
+In some frameworks like GatsbyJS, the `document.title` is injected some time after the did mount and thus the default title returned to is sometimes wrong. _This causes incorrect behavior only in development environments. There are no issues in the production builds._
 
 # JQuery Implementation
 

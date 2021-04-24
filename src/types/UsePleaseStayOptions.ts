@@ -5,6 +5,6 @@ export type UsePleaseStayOptions = {
   titles: Array<string>;
   animationType?: AnimationType;
   interval?: number;
-  faviconLinks?: Array<string>;
+  faviconURIs?: Array<string>;
   alwaysRunAnimations?: boolean;
 }
