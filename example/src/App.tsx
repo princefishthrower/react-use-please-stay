@@ -15,7 +15,7 @@ function App() {
   const [faviconLinks, setFaviconLinks] = useState<Array<string>>([
     'https://redux.js.org/img/favicon/favicon.ico',
   ]);
-  const [alwaysRunAnimations, setAlwaysRunAnimations] = useState<boolean>(false);
+  const [alwaysRunAnimations, setAlwaysRunAnimations] = useState<boolean>(true);
 
   usePleaseStay({
     titles,
@@ -73,7 +73,10 @@ const copyToClipboard = (text: string) => {
   return (
     <div className="container my-5">
       <h1>usePleaseStay</h1>
-      <p>Copy and paste this code right into your component:</p>
+      <p>An interactive demo showcasing all options.</p>
+      <strong className="d-block">The hook code you see below is identical to what is running on this site (and will likewise update as you change the option values)!</strong>
+      <strong className="d-block mt-3">Have fun experimenting!</strong>
+      <p className="mt-3">Copy and paste this code right into your component:</p>
       <CodeHighlighter code={code} language="tsx" />
       <button className="btn btn-primary" onClick={() => copyToClipboard(code)}>Copy</button>
       <h2>Options</h2>
