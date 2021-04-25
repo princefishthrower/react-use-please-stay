@@ -3,7 +3,7 @@
 
 ![react-use-please-stay at work](example.gif)
 
-A react hook that animates the document title and/or favicon when focus from the page is lost. (Or configure it to always animate! 😉)
+A React hook that animates the document title and/or favicon when focus from the page is lost. (Or configure it to always animate! 😉)
 
 # Interactive Demo
 
@@ -105,7 +105,9 @@ That's about it for all possible configurations. Just remember that since this h
 
 # Known Issues
 
-In some frameworks like GatsbyJS, the `document.title` is injected some time after the did mount and thus the default title returned to is sometimes wrong. _This causes incorrect behavior only in development environments. There are no issues in the production builds._
+In some frameworks like GatsbyJS, the `document.title` is injected some time after the hook mounts and thus the default title set when returning to the page is sometimes wrong. 
+
+_This causes incorrect behavior only in development environments. There are no issues in the production builds._
 
 # JQuery Implementation
 

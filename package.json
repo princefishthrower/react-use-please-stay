@@ -1,6 +1,6 @@
 {
   "name": "react-use-please-stay",
-  "version": "1.6.9",
+  "version": "1.6.10",
   "description": "A react hook that animates the document title when you leave a tab in a browser.",
   "author": "Chris Frewin",
   "license": "MIT",
@@ -35,9 +35,13 @@
   ],
   "keywords": [
     "react",
-    "react hooks",
+    "react hook",
     "typescript",
-    "npm"
+    "npm",
+    "change document title",
+    "favicon",
+    "title-animation",
+    "animation"
   ],
   "dependencies": {
     "prop-types": "^15.7.2"
