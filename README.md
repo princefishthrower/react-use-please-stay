@@ -7,7 +7,7 @@ A React hook that animates the document title and/or favicon when focus from the
 
 # Interactive Demo
 
-Link coming soon.
+[A fully interactive demo is here.](https://princefishthrower.github.io/react-use-please-stay)
 
 # Getting Started
 
