@@ -12,7 +12,7 @@ function App() {
   const [animationType, setAnimationType] = useState<AnimationType>(
     AnimationType.LOOP,
   );
-  const [faviconLinks, setFaviconLinks] = useState<Array<string>>([
+  const [faviconURIs, setFaviconURIs] = useState<Array<string>>([
     'https://redux.js.org/img/favicon/favicon.ico',
   ]);
   const [alwaysRunAnimations, setAlwaysRunAnimations] = useState<boolean>(true);
@@ -21,7 +21,7 @@ function App() {
     titles,
     interval: intervalTime,
     animationType,
-    faviconLinks,
+    faviconURIs,
     alwaysRunAnimations,
   });
 
@@ -31,8 +31,8 @@ function App() {
     ],
     interval: ${intervalTime},
     animationType: Animation.${animationType},
-    faviconLinks: [
-      ${faviconLinks
+    faviconURIs: [
+      ${faviconURIs
       .map((faviconLink) => `"${faviconLink}"`)
       .join(',\n      ')}
     ],
@@ -131,14 +131,14 @@ const copyToClipboard = (text: string) => {
             <pre className="mb-0 mx-1">AnimationType.CASCADE</pre>
           </label>
         </div>
-        <pre className="font-weight-bold">faviconLinks</pre>
+        <pre className="font-weight-bold mt-3">faviconURIs</pre>
         <small>(Comma separated)</small>
         <div className="form-group">
           <textarea
-            id="faviconLinks"
+            id="faviconURIs"
             className="form-control"
-            value={faviconLinks}
-            onChange={(event) => setFaviconLinks(event.target.value.split(','))}
+            value={faviconURIs}
+            onChange={(event) => setFaviconURIs(event.target.value.split(','))}
           ></textarea>
           <p>Try some of these:</p>
           <p>Redux Favicon: https://redux.js.org/img/favicon/favicon.ico</p>
