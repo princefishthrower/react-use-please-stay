@@ -1,9 +1,11 @@
 # react-use-please-stay  
-[![GitHub license](https://img.shields.io/badge/license-MIT-blue.svg)](https://github.com/princefishthrower/react-use-please-stay/blob/master/LICENSE) [![npm version](https://img.shields.io/npm/v/react-use-please-stay.svg?style=flat)](https://www.npmjs.com/package/react-use-please-stay) ![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg)
+[![GitHub license](https://img.shields.io/badge/license-MIT-blue.svg)](https://github.com/princefishthrower/react-use-please-stay/blob/master/LICENSE) [![npm version](https://img.shields.io/npm/v/react-use-please-stay.svg?style=flat)](https://www.npmjs.com/package/react-use-please-stay) ![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg) 
+
+🎃 ![](https://img.shields.io/github/hacktoberfest/2021/princefishthrower/react-use-please-stay) 🎃
 
 ![react-use-please-stay at work](example.gif)
 
-A React hook that animates the document title and/or favicon when focus from the page is lost. (Or configure it to always animate! 😉)
+A React hook that animates the document title and/or favicon when focus from the page is lost. (Or jump down to [the options](#options) to see how you can set it up to _always_ animate! 😉)
 
 # Interactive Demo
 
@@ -29,13 +31,14 @@ Use it within your functional component! (It has return type of `void`, so you c
 usePleaseStay({ titles: ["Don't go!", 'We have React hooks!'] });
 ```
 
+<a name="options"></a>
 # Options
 
 Options for the hook are passed via an object of [type `UsePleaseStayOptions` (click me!)](./src/types/UsePleaseStayOptions.ts).
 
-# Examples
+# Usage
 
-Minimal example, passing the single required option `titles`:
+Minimal usage in a component, passing the single required option `titles`:
 
 ```tsx
 function App() {
@@ -71,7 +74,7 @@ usePleaseStay({
 });
 ```
 
-Optionally specify a slower interval time in milliseconds (default is `1000`):
+Optional - specify a slower interval time in milliseconds (default is `1000`):
 
 ```tsx
 usePleaseStay({
@@ -80,7 +83,7 @@ usePleaseStay({
 });
 ```
 
-Optionally add in one or more favicon URIs to loop through each time the title changes (default is `[]`):
+Optional - add in one or more favicon URIs to loop through each time the title changes (default is `[]`):
 
 ```tsx
 usePleaseStay({
@@ -90,7 +93,7 @@ usePleaseStay({
 });
 ```
 
-Optionally have the animation always run with the `alwaysRunAnimations` (default is `false`):
+Optional - have the animation always run with the `alwaysRunAnimations` (default is `false`):
 
 ```tsx
 usePleaseStay({
@@ -101,13 +104,17 @@ usePleaseStay({
 });
 ```
 
-That's about it for all possible configurations. Just remember that since this hook interacts with `document.title` directly it should only be called only ***once*** in your app, for example in a layout or `App` component - otherwise the title animation will not be smooth and things could get... _strange_.
+That's about it for all possible configurations. 
+
+# Pitfalls
+
+**Since this hook interacts with `document.title` directly it should only be called only ***once*** in your app**, for example in a layout or `App` component - otherwise the title animation will not be smooth and things could get... _strange_.
 
 # Known Issues
 
 In some frameworks like GatsbyJS, the `document.title` is injected some time after the hook mounts and thus the default title set when returning to the page is sometimes wrong. 
 
-_This causes incorrect behavior only in development environments. There are no issues in the production builds._
+_This causes incorrect behavior only in development environments. There are no known issues in production builds._
 
 # JQuery Implementation
 
