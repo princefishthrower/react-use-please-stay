@@ -3,6 +3,7 @@ import { getFavicon } from '../../helpers/getFavicon';
 import { AnimationType } from '../../enums/AnimationType';
 import { UsePleaseStayOptions } from '../../types/UsePleaseStayOptions';
 import { useInterval } from '../useInterval';
+import { convertToBase64 } from '../../util/convertToBase64';
 
 export const usePleaseStay = ({
   titles,
@@ -111,7 +112,18 @@ export const usePleaseStay = ({
     originalFaviconHref.current = favicon.href;
     faviconRef.current = favicon;
 
-    // TODO: small preload logic for external favicon links? (if not a local URI)
+    // Store favicons in localStorage if they are external URIs
+    // TODO: cache invalidation?
+    let externalFavicons: string[] = [];
+    const cachedFavicons = Object.entries(localStorage).filter(key => key.indexOf('usePleaseStayFavicon-') != -1);
+    if (!cachedFavicons) {
+      externalFavicons = faviconURIs.filter(f => /^(http|https):\/\/[^ "]+$/.test(f) && convertToBase64(f).then(faviconBlob => faviconBlob));
+      externalFavicons.forEach((f, index) => localStorage.setItem(`usePleaseStayFavicon-${index}`, f));
+    }
+
+    faviconRef.current.href = localStorage.getItem('usePleaseStayFavicon-0');
+    faviconURIs.push(...externalFavicons);
+
     // Build faviconLinksState
     // Append current favicon href, since this is needed for an expected favicon toggle or animation pattern
     setFaviconURIsState([...faviconURIs, favicon.href]);
