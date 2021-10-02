@@ -23,6 +23,10 @@ export function Toggle() {
     } else if (localStorage.getItem('theme') === 'theme-light') {
         setTogClass('light')
     }
+    else {
+        setTogClass('light')
+        setTheme('theme-light')
+    }
 }, [theme])
 
 
