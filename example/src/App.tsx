@@ -2,6 +2,7 @@ import React from 'react';
 import { useState } from 'react';
 import { AnimationType, usePleaseStay } from 'react-use-please-stay';
 import { CodeHighlighter } from './CodeHighlighter';
+import {Toggle} from './Toggle';
 
 function App() {
   const [titles, setTitles] = useState<Array<string>>([
@@ -76,6 +77,10 @@ const copyToClipboard = (text: string) => {
       <p>An interactive demo showcasing all options.</p>
       <strong className="d-block">The hook code you see below is identical to what is running on this site (and will likewise update as you change the option values)!</strong>
       <strong className="d-block mt-3">Have fun experimenting!</strong>
+      <br/>
+      <div className = "navbar-brand">
+      <Toggle/>
+      </div>
       <p className="mt-3">Copy and paste this code right into your component:</p>
       <CodeHighlighter code={code} language="tsx" />
       <button className="btn btn-primary" onClick={() => copyToClipboard(code)}>Copy</button>
