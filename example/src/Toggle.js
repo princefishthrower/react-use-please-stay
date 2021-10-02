@@ -31,7 +31,7 @@ export function Toggle() {
   return (
     <DarkModeToggle
       onChange={handleOnClick}
-      checked={togClass === "dark"}
+      checked={togClass === 'dark'}
       size={70}
     />
   );
