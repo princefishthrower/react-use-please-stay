@@ -15,8 +15,18 @@ export const useInterval = (callback: () => void, delay: number | null) => {
       return
     }
 
-    const id = setInterval(() => savedCallback.current(), delay)
+    // Don't schedule if it is already scheduled
+    if((window as any).IS_TITLE_CHANGE_RUNNING) {
+      console.warn('An animation for your document title/fav icon is already running');
+      return;
+    }
 
-    return () => clearInterval(id)
+    const id = setInterval(() => savedCallback.current(), delay);
+    (window as any).IS_TITLE_CHANGE_RUNNING = true;
+
+    return () => {
+      clearInterval(id);
+      (window as any).IS_TITLE_CHANGE_RUNNING = false;
+    }
   }, [delay])
-}
+} 
