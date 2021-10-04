@@ -1,4 +1,4 @@
 export enum AnimationType {
-    LOOP="LOOP",
-    CASCADE="CASCADE",
+  LOOP = 'LOOP',
+  CASCADE = 'CASCADE',
 }

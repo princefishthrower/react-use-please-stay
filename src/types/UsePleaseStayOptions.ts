@@ -6,4 +6,4 @@ export type UsePleaseStayOptions = {
   interval?: number;
   faviconURIs?: Array<string>;
   alwaysRunAnimations?: boolean;
-}
+};

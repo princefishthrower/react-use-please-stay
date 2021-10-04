@@ -2,7 +2,7 @@ import React from 'react';
 import { useState } from 'react';
 import { AnimationType, usePleaseStay } from 'react-use-please-stay';
 import { CodeHighlighter } from './CodeHighlighter';
-import {Toggle} from './Toggle';
+import { Toggle } from './Toggle';
 
 function App() {
   const [titles, setTitles] = useState<Array<string>>([
@@ -33,57 +33,60 @@ function App() {
     interval: ${intervalTime},
     animationType: Animation.${animationType},
     faviconURIs: [
-      ${faviconURIs
-      .map((faviconLink) => `"${faviconLink}"`)
-      .join(',\n      ')}
+      ${faviconURIs.map((faviconLink) => `"${faviconLink}"`).join(',\n      ')}
     ],
     alwaysRunAnimations: ${alwaysRunAnimations.toString()}
 })`;
 
-// Copies a string to the clipboard. Must be called from within an
-// event handler such as click. May return false if it failed, but
-// this is not always possible. Browser support for Chrome 43+,
-// Firefox 42+, Safari 10+, Edge and Internet Explorer 10+.
-// Internet Explorer: The clipboard feature may be disabled by
-// an administrator. By default a prompt is shown the first
-// time the clipboard is used (per session).
-const copyToClipboard = (text: string) => {
-  if ((window as any).clipboardData && (window as any).clipboardData.setData) {
+  // Copies a string to the clipboard. Must be called from within an
+  // event handler such as click. May return false if it failed, but
+  // this is not always possible. Browser support for Chrome 43+,
+  // Firefox 42+, Safari 10+, Edge and Internet Explorer 10+.
+  // Internet Explorer: The clipboard feature may be disabled by
+  // an administrator. By default a prompt is shown the first
+  // time the clipboard is used (per session).
+  const copyToClipboard = (text: string) => {
+    if ((window as any).clipboardData && (window as any).clipboardData.setData) {
       // Internet Explorer-specific code path to prevent textarea being shown while dialog is visible.
-      return (window as any).clipboardData.setData("Text", text);
-  }
-  else if (document.queryCommandSupported && document.queryCommandSupported("copy")) {
-      const textarea = document.createElement("textarea");
+      return (window as any).clipboardData.setData('Text', text);
+    } else if (
+      document.queryCommandSupported &&
+      document.queryCommandSupported('copy')
+    ) {
+      const textarea = document.createElement('textarea');
       textarea.textContent = text;
-      textarea.style.position = "fixed";  // Prevent scrolling to bottom of page in Microsoft Edge.
+      textarea.style.position = 'fixed'; // Prevent scrolling to bottom of page in Microsoft Edge.
       document.body.appendChild(textarea);
       textarea.select();
       try {
-          return document.execCommand("copy");  // Security exception may be thrown by some browsers.
+        return document.execCommand('copy'); // Security exception may be thrown by some browsers.
+      } catch (ex) {
+        console.warn('Copy to clipboard failed.', ex);
+        return false;
+      } finally {
+        document.body.removeChild(textarea);
       }
-      catch (ex) {
-          console.warn("Copy to clipboard failed.", ex);
-          return false;
-      }
-      finally {
-          document.body.removeChild(textarea);
-      }
-  }
-}
+    }
+  };
 
   return (
     <div className="container my-5">
       <h1>usePleaseStay</h1>
       <p>An interactive demo showcasing all options.</p>
-      <strong className="d-block">The hook code you see below is identical to what is running on this site (and will likewise update as you change the option values)!</strong>
+      <strong className="d-block">
+        The hook code you see below is identical to what is running on this site (and
+        will likewise update as you change the option values)!
+      </strong>
       <strong className="d-block mt-3">Have fun experimenting!</strong>
-      <br/>
-      <div className = "navbar-brand">
-      <Toggle/>
+      <br />
+      <div className="navbar-brand">
+        <Toggle />
       </div>
       <p className="mt-3">Copy and paste this code right into your component:</p>
       <CodeHighlighter code={code} language="tsx" />
-      <button className="btn btn-primary" onClick={() => copyToClipboard(code)}>Copy</button>
+      <button className="btn btn-primary" onClick={() => copyToClipboard(code)}>
+        Copy
+      </button>
       <h2>Options</h2>
       <form>
         <pre className="font-weight-bold">titles</pre>
@@ -148,7 +151,10 @@ const copyToClipboard = (text: string) => {
           <p>Try some of these:</p>
           <p>Redux Favicon: https://redux.js.org/img/favicon/favicon.ico</p>
           <p>Gatsby Favicon: https://www.gatsbyjs.com/favicon-32x32.png</p>
-          <p>Electron Favicon: https://www.electronjs.org/images/favicon.b7a59262df48d6563400baf5671da548.ico</p>
+          <p>
+            Electron Favicon:
+            https://www.electronjs.org/images/favicon.b7a59262df48d6563400baf5671da548.ico
+          </p>
         </div>
         <pre className="font-weight-bold">alwaysRunAnimations</pre>
         <div className="form-check form-check-inline">
