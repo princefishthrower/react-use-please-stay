@@ -1,36 +1,31 @@
-import React, {useState, useEffect} from "react";
-import DarkModeToggle from "react-dark-mode-toggle";
-import {setTheme} from './themes';
+import React, { useState, useEffect } from 'react';
+import DarkModeToggle from 'react-dark-mode-toggle';
+import { setTheme } from './themes';
 import './toggle.css';
 export function Toggle() {
-
   const [togClass, setTogClass] = useState(() => false);
   let theme = localStorage.getItem('theme');
 
   function handleOnClick() {
     if (localStorage.getItem('theme') === 'theme-dark') {
-        setTheme('theme-light');
-        setTogClass('light')
+      setTheme('theme-light');
+      setTogClass('light');
     } else {
-        setTheme('theme-dark');
-        setTogClass('dark')
+      setTheme('theme-dark');
+      setTogClass('dark');
     }
   }
 
   useEffect(() => {
     if (localStorage.getItem('theme') === 'theme-dark') {
-        setTogClass('dark')
+      setTogClass('dark');
     } else if (localStorage.getItem('theme') === 'theme-light') {
-        setTogClass('light')
+      setTogClass('light');
+    } else {
+      setTogClass('light');
+      setTheme('theme-light');
     }
-    else {
-        setTogClass('light')
-        setTheme('theme-light')
-    }
-}, [theme])
-
-
-
+  }, [theme]);
 
   return (
     <DarkModeToggle
@@ -39,4 +34,4 @@ export function Toggle() {
       size={70}
     />
   );
-};
+}
